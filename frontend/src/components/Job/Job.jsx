@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap';
 import Quote from '../Quote';
 import { JobStatus, UserTypes } from '../../const';
+import pimage from './img/paint-job.png';
 
 const Job = ({
     timestamp,
@@ -81,10 +82,11 @@ const Job = ({
     default:
         jobStatusDesc = 'Unknown';
     }
+    jobStatusDesc = <b>{jobStatusDesc}</b>;
     return (
         <Media>
             <Media.Left>
-                <img width={64} height={64} src="/thumbnail.png" alt="thumbnail" />
+                <img width={64} height={64} src={pimage} alt="Paint Job" />
             </Media.Left>
             <Media.Body>
                 <Media.Heading>Painting job</Media.Heading>
