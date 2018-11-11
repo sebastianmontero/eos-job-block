@@ -49,19 +49,22 @@ const Header = (props) => {
     }
 
     return (
-        // <Jumbotron>
-        <Navbar inverse collapseOnSelect>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    Job Block
-                </Navbar.Brand>
-                <Navbar.Toggle />
-            </Navbar.Header>
-            <Navbar.Collapse>
-                {links}
-            </Navbar.Collapse>
-        </Navbar>
-        // </Jumbotron >
+        <Jumbotron>
+            <Navbar inverse collapseOnSelect>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a href="#brand">
+                            <img width={25} height={25} src={logo} alt="Paint Block" style={{ display: 'inline', marginRight: '5px' }} />
+                            Job Block
+                        </a>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    {links}
+                </Navbar.Collapse>
+            </Navbar>
+        </Jumbotron>
     );
 };
 
