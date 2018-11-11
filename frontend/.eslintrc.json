@@ -1,0 +1,31 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "react/jsx-indent": 4,
+        "react/jsx-indent-props": 4,
+        "react/button-has-type": false,
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "no-plusplus": [
+            "error",
+            {
+                "allowForLoopAfterthoughts": true
+            }
+        ]
+    }
+}

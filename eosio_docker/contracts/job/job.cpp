@@ -43,6 +43,7 @@ CONTRACT job : public eosio::contract
         string complain; // the job message
         int8_t status;
         asset quote;
+        uint64_t timestamp;
         // primary key
         auto primary_key() const { return prim_key; }
         uint128_t get_by_skey() const { return skey; }
@@ -78,6 +79,7 @@ CONTRACT job : public eosio::contract
             new_job.client = client;
             new_job.address = address;
             new_job.details = details;
+            new_job.timestamp = timestamp;
             new_job.status = CREATED;
         });
     }

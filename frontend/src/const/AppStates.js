@@ -1,0 +1,6 @@
+export default {
+    AWAITING: 'AWAITING',
+    CREATING_JOB: 'CREATING_JOB',
+    LOADING: 'LOADING',
+    CREATED_JOB: 'CREATED_JOB',
+};
