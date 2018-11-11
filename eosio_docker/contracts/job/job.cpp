@@ -1,5 +1,6 @@
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
+#include "eosio.token.hpp"
 
 using namespace eosio;
 using namespace std;
@@ -114,12 +115,26 @@ CONTRACT job : public eosio::contract
             modified_job.status = ACCEPTED;
         });
 
-        action(
-            permission_level{client, name("active")},
+        print(" client: ", client);
+        print(" quote: ", job.quote);
+
+        /*action(
+            permission_level(client, name("active")),
             name("token"),
             name("transfer"),
             std::make_tuple(client, _self, job.quote, "To perform job with id: "))
-            .send();
+            .send();*/
+        INLINE_ACTION_SENDER(eosio::token, transfer)
+        (
+            name("token"), {{client, "active"_n}},
+            {client, _self, job.quote, std::string("issue tokens to perform job with id:")});
+
+        /*action(permission_level(
+                   _self, name("active")),
+               name("token"),
+               name("transfer"),
+               std::make_tuple(_self, name("useraaaaaaac"), job.quote, "To perform job with id: "))
+            .send();*/
     }
 
     ACTION finishjob(const uint64_t timestamp, name client)
@@ -153,12 +168,16 @@ CONTRACT job : public eosio::contract
             modified_job.status = PAYED;
         });
 
-        action(
+        /*action(
             permission_level{_self, name("active")},
             name("token"),
             name("transfer"),
             std::make_tuple(_self, job.contractor, job.quote, "To perform job with id: "))
-            .send();
+            .send();*/
+        INLINE_ACTION_SENDER(eosio::token, transfer)
+        (
+            name("token"), {{_self, "active"_n}},
+            {_self, job.contractor, job.quote, std::string("issue tokens for performing job with id:")});
     }
 };
 

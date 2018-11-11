@@ -49,6 +49,16 @@ cleos wallet import -n jobchainwal --private-key 5JD9AGTuTeD5BXZwGQ5AtwBqHK21aHm
 # create account for jobchainacc with above wallet's public keys
 cleos create account eosio jobchainacc EOS6PUh9rs7eddJNzqgqDx1QrspSHLRxLMcRdwHZZRL4tpbtvia5B EOS8BCgapgYA2L4LJfCzekzeSr3rzgSTUXRXwNi8bNRoz31D14en9
 
+
+cleos wallet import -n jobchainwal --private-key 5KNKqEsKqXLE4YxksiiDpU58V1gX3ugiWkrxmq1j3kzVHE5WHT9
+# Active key for jobchainwal wallet
+cleos wallet import -n jobchainwal --private-key 5KPstJfHkczJcTVuWfRP2sxyg4JQBz2GkCFfHoZAcg2wSBs7Q6g
+
+# * Replace "notechainwal" by your own wallet name when you start your own project
+
+# create account for jobchainacc with above wallet's public keys
+cleos create account eosio token EOS8FY5TKExgy6dJsmriAb4JFwUBvLdBhsgfhNCjoB4nRqrDGH4xM EOS7kVLdTQ7jxYnSCJy8QkLXQWi1FyzAmCAmCNAtcXMZAGBKkiSYV
+
 # * Replace "notechainacc" by your own account name when you start your own project
 
 echo "=== deploy smart contract ==="
@@ -61,6 +71,18 @@ echo "=== deploy smart contract ==="
 echo "=== create user accounts ==="
 # script for create data into blockchain
 create_accounts.sh
+
+
+cleos set contract token /opt/eosio/bin/contracts/eosio.token --permission token
+
+cleos push action token create '{"issuer":"token", "maximum_supply":"1000000.0000 GLD"}' -p token
+cleos push action token issue '{"to":"token", "quantity":"1000000.0000 GLD", "memo":"GLD issue"}' -p token
+cleos push action token transfer '{"from":"token","to":"useraaaaaaaa", "quantity":"500000.0000 GLD", "memo":"GLD issue"}' -p token
+
+#cleos set account permission useraaaaaaaa active '{"threshold":"1", "keys":[{"key":"EOS6kYgMTCh1iqpq9XGNQbEi8Q6k5GujefN9DSs55dcjVyFAq7B6b", "weight":"1"}], "accounts":[{"permission":{"actor":"jobchainacc", "permission":"eosio.code"}, "weight":"1"}], "waits":[]}' owner -p useraaaaaaaa
+cleos set account permission useraaaaaaaa active '{"threshold":"1", "keys":[{"key":"EOS6kYgMTCh1iqpq9XGNQbEi8Q6k5GujefN9DSs55dcjVyFAq7B6b", "weight":"1"}], "accounts":[{"permission":{"actor":"jobchainacc", "permission":"eosio.code"}, "weight":"1"}], "waits":[]}' -p useraaaaaaaa@active
+cleos set account permission jobchainacc active '{"threshold": 1,"keys": [{"key": "EOS78RuuHNgtmDv9jwAzhxZ9LmC6F295snyQ9eUDQ5YtVHJ1udE6p","weight": 1}], "accounts": [{"permission":{"actor":"jobchainacc","permission":"eosio.code"},"weight":1}]}'  -p jobchainacc@active
+
 
 # * Replace the script with different form of data that you would pushed into the blockchain when you start your own project
 
