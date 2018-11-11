@@ -3,7 +3,8 @@ import App from './App';
 import Header from './Header';
 import Home from './Home';
 import PostedJobs from './PostedJobs';
-import Jobs from './Jobs';
+import MyPostedJobs from './MyPostedJobs';
+import JobList from './JobList';
 
 
 export {
@@ -12,5 +13,6 @@ export {
     Header,
     Home,
     PostedJobs,
-    Jobs,
+    MyPostedJobs,
+    JobList,
 };

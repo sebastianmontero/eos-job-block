@@ -160,10 +160,10 @@ class JobAction {
         };
     }
 
-    static finishJob(timestamp, client) {
+    static finishJob(timestamp, client, contractor) {
         return (dispatch) => {
             dispatch(JobAction.finishJobRequest());
-            ApiService.finishJob(timestamp, client, Accounts.CONTRACT_KEY)
+            ApiService.finishJob(timestamp, client, contractor, Accounts.CONTRACT_KEY)
                 .then(() => {
                     dispatch(JobAction.finishJobSuccess());
                     dispatch(JobAction.getJobs());
@@ -191,10 +191,10 @@ class JobAction {
         };
     }
 
-    static claim(timestamp, client) {
+    static claim(timestamp, client, contractor) {
         return (dispatch) => {
             dispatch(JobAction.claimRequest());
-            ApiService.claim(timestamp, client, Accounts.CONTRACT_KEY)
+            ApiService.claim(timestamp, client, contractor, Accounts.CONTRACT_KEY)
                 .then(() => {
                     dispatch(JobAction.claimSuccess());
                     dispatch(JobAction.getJobs());

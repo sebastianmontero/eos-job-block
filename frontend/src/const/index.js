@@ -1,11 +1,13 @@
 import ActionTypes from './ActionTypes';
 import Accounts from './Accounts';
 import AppStates from './AppStates';
-import JobStates from './JobStates';
+import JobStatus from './JobStatus';
+import UserTypes from './UserTypes';
 
 export {
     ActionTypes,
     Accounts,
     AppStates,
-    JobStates,
+    JobStatus,
+    UserTypes,
 };

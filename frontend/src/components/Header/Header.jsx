@@ -28,9 +28,9 @@ const Header = () => (
                             Post Job
                         </NavItem>
                     </LinkContainer>
-                    <LinkContainer to="/posted-jobs">
+                    <LinkContainer to="/my-posted-jobs">
                         <NavItem>
-                            Posted Jobs
+                            My Posted Jobs
                         </NavItem>
                     </LinkContainer>
                 </Nav>

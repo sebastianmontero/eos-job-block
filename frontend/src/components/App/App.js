@@ -5,8 +5,8 @@ import {
     PostJob,
     Header,
     Home,
+    MyPostedJobs,
     PostedJobs,
-    Jobs,
 } from '..';
 
 class App extends Component {
@@ -20,8 +20,8 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/post-job" component={PostJob} />
+                        <Route path="/my-posted-jobs" component={MyPostedJobs} />
                         <Route path="/posted-jobs" component={PostedJobs} />
-                        <Route path="/jobs" component={Jobs} />
                     </Switch>
                 </Grid>
             </BrowserRouter>

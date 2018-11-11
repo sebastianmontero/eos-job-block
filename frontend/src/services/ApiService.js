@@ -23,10 +23,10 @@ async function takeAction(action, dataValue, account, key) {
                 data: dataValue,
             }],
         },
-        {
-            blocksBehind: 3,
-            expireSeconds: 30,
-        });
+            {
+                blocksBehind: 3,
+                expireSeconds: 30,
+            });
 
         return resultWithConfig;
     } catch (error) {
@@ -47,33 +47,33 @@ class ApiService {
     }
 
     static async quoteJob(timestamp, client, contractor, quote, contractorKey) {
-        return takeAction('quoteJob', {
+        return takeAction('quotejob', {
             client,
             timestamp,
             contractor,
             quote,
-        }, client, contractorKey);
+        }, contractor, contractorKey);
     }
 
     static async acceptJob(timestamp, client, clientKey) {
-        return takeAction('acceptJob', {
+        return takeAction('acceptjob', {
             client,
             timestamp,
         }, client, clientKey);
     }
 
-    static async finishJob(timestamp, client, contractorKey) {
+    static async finishJob(timestamp, client, contractor, contractorKey) {
         return takeAction('finishjob', {
             client,
             timestamp,
-        }, client, contractorKey);
+        }, contractor, contractorKey);
     }
 
-    static async claim(timestamp, client, contractorKey) {
+    static async claim(timestamp, client, contractor, contractorKey) {
         return takeAction('claim', {
             client,
             timestamp,
-        }, client, contractorKey);
+        }, contractor, contractorKey);
     }
 
     static async getJobs() {

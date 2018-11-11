@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import {
+    FormGroup, FormControl, ControlLabel, Button,
+} from 'react-bootstrap';
 import { JobAction } from '../../actions';
 
 class PostJob extends Component {
@@ -23,8 +25,36 @@ class PostJob extends Component {
     }
 
     render() {
+        const { username, address, details } = this.state;
         return (
-            <Button bsStyle="primary" onClick={this.handleSubmit}>Post Job</Button>
+
+            <form>
+                <FormGroup controlId="nameText">
+                    <ControlLabel>Name</ControlLabel>
+                    <FormControl
+                        type="text"
+                        value={username}
+                        readOnly
+                    />
+                </FormGroup>
+                <FormGroup controlId="addressText">
+                    <ControlLabel>Address</ControlLabel>
+                    <FormControl
+                        type="text"
+                        value={address}
+                        readOnly
+                    />
+                </FormGroup>
+                <FormGroup controlId="detailsText">
+                    <ControlLabel>Details</ControlLabel>
+                    <FormControl
+                        componentClass="textarea"
+                        value={details}
+                        readOnly
+                    />
+                </FormGroup>
+                <Button bsStyle="primary" onClick={this.handleSubmit}>Post Job</Button>
+            </form>
         );
     }
 }
