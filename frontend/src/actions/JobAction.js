@@ -67,7 +67,6 @@ class JobAction {
             ).then(
                 () => {
                     dispatch(JobAction.createJobSucces());
-                    dispatch(JobAction.getJobs());
                 },
                 error => dispatch(JobAction.createJobFailure(error)),
             );
@@ -106,7 +105,7 @@ class JobAction {
                 dispatch(JobAction.quoteJobSuccess());
                 dispatch(JobAction.getJobs());
             },
-            error => dispatch(JobAction.quoteJobFailure(error)));
+                error => dispatch(JobAction.quoteJobFailure(error)));
         };
     }
 
@@ -137,7 +136,7 @@ class JobAction {
                     dispatch(JobAction.acceptJobSuccess());
                     dispatch(JobAction.getJobs());
                 },
-                error => dispatch(JobAction.acceptJobFailure(error)));
+                    error => dispatch(JobAction.acceptJobFailure(error)));
         };
     }
 
@@ -168,7 +167,7 @@ class JobAction {
                     dispatch(JobAction.finishJobSuccess());
                     dispatch(JobAction.getJobs());
                 },
-                error => dispatch(JobAction.finishJobFailure(error)));
+                    error => dispatch(JobAction.finishJobFailure(error)));
         };
     }
 
@@ -199,7 +198,7 @@ class JobAction {
                     dispatch(JobAction.claimSuccess());
                     dispatch(JobAction.getJobs());
                 },
-                error => dispatch(JobAction.claimFailure(error)));
+                    error => dispatch(JobAction.claimFailure(error)));
         };
     }
 }
