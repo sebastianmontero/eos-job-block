@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "LinuxWin32",
+            "includePath": [
+                "/usr/opt/eosio.cdt/1.4.1/include",
+                "${workspaceFolder}"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "/usr/opt/eosio.cdt/1.4.1/include",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
