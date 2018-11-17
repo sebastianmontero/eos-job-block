@@ -72,6 +72,8 @@ echo "=== create user accounts ==="
 # script for create data into blockchain
 create_accounts.sh
 
+eosio-cpp -I /opt/eosio/bin/contracts/eosio.token/include -abigen /opt/eosio/bin/contracts/eosio.token/eosio.token.cpp -o /opt/eosio/bin/contracts/eosio.token/eosio.token.wasm --contract "eosio.token"
+#eosio-cpp -I /opt/eosio/bin/contracts/eosio.token/include -o /opt/eosio/bin/contracts/eosio.token/eosio.token.wasm /opt/eosio/bin/contracts/eosio.token/eosio.token.cpp --abigen
 
 cleos set contract token /opt/eosio/bin/contracts/eosio.token --permission token
 
